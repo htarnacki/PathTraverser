@@ -1,6 +1,6 @@
 [project]
-name = "Traverser"
-version = "1.0.0"
+name = "PathTraverser"
+version = "1.0.2"
 description = "Traversing files and directories in Python easily"
 authors = [
   { name = "Hubert Tarnacki", email = "hubert.tarnacki@gmail.com" }
@@ -23,9 +23,9 @@ classifiers = [
 requires-python = ">=3.8"
 
 [project.urls]
-homepage = "https://github.com/htarnacki/Traverser"
-repository = "https://github.com/htarnacki/Traverser"
-"bug tracker" = "https://github.com/htarnacki/Traverser/issues"
+homepage = "https://github.com/htarnacki/PathTraverser"
+repository = "https://github.com/htarnacki/PathTraverser"
+"bug tracker" = "https://github.com/htarnacki/PathTraverser/issues"
 
 [tool.pdm.dev-dependencies]
 lint = ["flake8"]
