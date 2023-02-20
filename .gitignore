@@ -1,0 +1,32 @@
+# Compiled python modules.
+*.pyc
+
+# Setuptools distribution folder.
+dist/
+
+# Python egg metadata, regenerated from source files by setuptools.
+*.egg-info/
+
+# Code editors
+.idea/
+.vscode/
+
+# Tox
+.tox/
+
+# general things to ignore
+build/
+*.egg
+*.py[cod]
+__pycache__/
+*.so
+*~
+
+# venv
+.venv
+
+# pdm
+.pdm.toml
+
+# custom
+.NOTES

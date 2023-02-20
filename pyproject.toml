@@ -1,0 +1,53 @@
+[project]
+name = "Traverser"
+version = "1.0.0"
+description = "Traversing files and directories in Python easily"
+authors = [
+  { name = "Hubert Tarnacki", email = "hubert.tarnacki@gmail.com" }
+]
+maintainers = [
+  { name = "Hubert Tarnacki", email = "hubert.tarnacki@gmail.com" }
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["traverse", "walk", "list", "files", "directories", "filesystem"]
+classifiers = [
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: System :: Filesystems",
+  "Programming Language :: Python",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+requires-python = ">=3.8"
+
+[project.urls]
+homepage = "https://github.com/htarnacki/Traverser"
+repository = "https://github.com/htarnacki/Traverser"
+"bug tracker" = "https://github.com/htarnacki/Traverser/issues"
+
+[tool.pdm.dev-dependencies]
+lint = ["flake8"]
+test = ["tox"]
+
+[tool.pdm.build]
+package-dir = "src"
+excludes = ["tests/"]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.black]
+line-length = 120
+
+[tool.autopep8]
+max_line_length = 120
+
+[tool.yapf]
+max-line-length = 120
+column_limit = 120
+
+[tool.flake8]
+max-line-length = 120
