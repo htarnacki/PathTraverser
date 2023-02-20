@@ -1,7 +1,7 @@
 import unittest
 import re
 from pathlib import Path
-from Traverser import Traverser, PathTypes
+from PathTraverser import Traverser, PathTypes
 
 
 class TraverserTestCase(unittest.TestCase):
@@ -87,7 +87,7 @@ class TraverserTestCase(unittest.TestCase):
                 print(str(_))
 
     def test_012(self):
-        from Traverser.PathUtils import first
+        from PathTraverser.PathUtils import first
         with Traverser(
                 Path(__file__).parent / 'testData',
                 pathfilter=lambda _, rel: first(rel).name in {'sub2', 'sub3'}
@@ -104,7 +104,7 @@ class TraverserTestCase(unittest.TestCase):
                 print(str(_))
 
     def test_014(self):
-        from Traverser.PathUtils import starts_with
+        from PathTraverser.PathUtils import starts_with
         with Traverser(
                 Path(__file__).parent / 'testData',
                 pathfilter=lambda _, root: starts_with(_, root / 'sub1')
@@ -113,7 +113,7 @@ class TraverserTestCase(unittest.TestCase):
                 print(str(_))
 
     def test_015(self):
-        from Traverser.PathUtils import first, last
+        from PathTraverser.PathUtils import first, last
         with Traverser(
                 Path(__file__).parent / 'testData',
                 mindepth=1,
@@ -123,7 +123,7 @@ class TraverserTestCase(unittest.TestCase):
                 print(str(_))
 
     def test_016(self):
-        from Traverser.PathUtils import Path
+        from PathTraverser.PathUtils import Path
         with Traverser(
                 Path(__file__).parent / 'testData',
                 mindepth=1,
@@ -133,7 +133,7 @@ class TraverserTestCase(unittest.TestCase):
                 print(str(_))
 
     def test_017(self):
-        from Traverser.PathUtils import Path
+        from PathTraverser.PathUtils import Path
         with Traverser(
                 Path(__file__).parent / 'testData',
                 pathfilter=lambda _, rel: rel.part_count == 1
@@ -166,7 +166,7 @@ class TraverserTestCase(unittest.TestCase):
                 print(str(_))
 
     def test_021(self):
-        from Traverser.PathUtils import Path
+        from PathTraverser.PathUtils import Path
         with Traverser(
                 Path(__file__).parent / 'testData',
                 mindepth=1,
