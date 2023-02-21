@@ -1,6 +1,6 @@
 [project]
 name = "PathTraverser"
-version = "1.0.2"
+version = "1.0.3"
 description = "Traversing files and directories in Python easily"
 authors = [
   { name = "Hubert Tarnacki", email = "hubert.tarnacki@gmail.com" }
