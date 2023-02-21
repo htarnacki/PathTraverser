@@ -29,6 +29,19 @@ def _get_params_signature_for_callable(callable: Callable) -> Union[None, Dict[s
 class Traverser:
 
     # private members
+    _root: Path
+    _depth: int
+    _pathtype: PathTypes
+    _mindepth: int
+    _maxdepth: int
+    _pathfilter: Callable
+    _namefilter: Union[re.Pattern, str]
+    _extfilter: str
+    _exclude_pathfilter: Callable
+    _exclude_namefilter: Union[re.Pattern, str]
+    _exclude_extfilter: str
+    _followlinks: bool
+    _onerror: Callable
     _iterator: Iterator
     _dirpath: str
     _dirnames: List[str]
@@ -36,21 +49,6 @@ class Traverser:
     _results: Set[Path]
     _pathfilter_signature: Dict[str, bool]
     _exclude_pathfilter_signature: Dict[str, bool]
-
-    # public members
-    root: Path
-    depth: int
-    pathtype: PathTypes
-    mindepth: int
-    maxdepth: int
-    pathfilter: Callable
-    namefilter: Union[re.Pattern, str]
-    extfilter: str
-    exclude_pathfilter: Callable
-    exclude_namefilter: Union[re.Pattern, str]
-    exclude_extfilter: str
-    followlinks: bool
-    onerror: Callable
 
     def __init__(
         self,
@@ -67,23 +65,75 @@ class Traverser:
         followlinks: bool = True,
         onerror: Callable = None
     ):
-        self.root = Path(root)
-        if not self.root.is_absolute():
-            self.root = Path.cwd() / self.root
-        self.pathtype = pathtype
-        self.mindepth = mindepth
-        self.maxdepth = maxdepth
-        self.pathfilter = pathfilter
-        self.namefilter = namefilter
-        self.extfilter = extfilter
-        self.exclude_pathfilter = exclude_pathfilter
-        self.exclude_namefilter = exclude_namefilter
-        self.exclude_extfilter = exclude_extfilter
-        self.followlinks = followlinks
-        self.onerror = onerror
+        self._root = Path(root)
+        if not self._root.is_absolute():
+            self._root = Path.cwd() / self._root
+        self._pathtype = pathtype
+        self._mindepth = mindepth
+        self._maxdepth = maxdepth
+        self._pathfilter = pathfilter
+        self._namefilter = namefilter
+        self._extfilter = extfilter
+        self._exclude_pathfilter = exclude_pathfilter
+        self._exclude_namefilter = exclude_namefilter
+        self._exclude_extfilter = exclude_extfilter
+        self._followlinks = followlinks
+        self._onerror = onerror
         # analyze callable filters
         self._pathfilter_signature = _get_params_signature_for_callable(pathfilter)
         self._exclude_pathfilter_signature = _get_params_signature_for_callable(exclude_pathfilter)
+
+    @property
+    def root(self) -> Path:
+        return self._root
+
+    @property
+    def depth(self) -> int:
+        return self._depth
+
+    @property
+    def pathtype(self) -> PathTypes:
+        return self._pathtype
+
+    @property
+    def mindepth(self) -> int:
+        return self._mindepth
+
+    @property
+    def maxdepth(self) -> int:
+        return self._maxdepth
+
+    @property
+    def pathfilter(self) -> Callable:
+        return self._pathfilter
+
+    @property
+    def namefilter(self) -> Union[re.Pattern, str]:
+        return self._namefilter
+
+    @property
+    def extfilter(self) -> str:
+        return self._extfilter
+
+    @property
+    def exclude_pathfilter(self) -> Callable:
+        return self._exclude_pathfilter
+
+    @property
+    def exclude_namefilter(self) -> Union[re.Pattern, str]:
+        return self._exclude_namefilter
+
+    @property
+    def exclude_extfilter(self) -> str:
+        return self._exclude_extfilter
+
+    @property
+    def followlinks(self) -> bool:
+        return self._followlinks
+
+    @property
+    def onerror(self) -> Callable:
+        return self._onerror
 
     def __enter__(self) -> 'Traverser':
         return self
@@ -101,7 +151,7 @@ class Traverser:
         self._dirnames = None
         self._filenames = None
         self._results = None
-        self.depth = None
+        self._depth = None
         return self
 
     def __next__(self) -> 'Path':
@@ -202,7 +252,7 @@ class Traverser:
                 # break if finally there are some results ready to return
                 if len(paths) > 0:
                     self._results = paths
-                    self.depth = currdepth
+                    self._depth = currdepth
                     break
         return Path(self._dirpath) / self._results.pop()
 
