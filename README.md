@@ -110,7 +110,7 @@ Iterated root path can be of type string or pathlib.Path and can be relative or 
 >>>         print(str(_))
 ```
 
-### We can limit min depth of iteration
+### We can set min depth of iteration
 ```python
 >>> from pathlib import Path
 >>> from PathTraverser import Traverser
@@ -172,9 +172,9 @@ Iterated root path can be of type string or pathlib.Path and can be relative or 
 First argument of path filter is positional and mandatory and is of type pathlib.Path. It means: current path to check
 
 Path filter can also have any of following optional key word arguments:
-- rel: relative form of current path against root path (of type pathlib.Path)
-- root: root path (of type pathlib.Path)
-- depth: current iteration depth (of type int)
+- ```rel```: relative form of current path against root path (of type pathlib.Path)
+- ```root```: root path (of type pathlib.Path)
+- ```depth```: current iteration depth (of type int)
 
 ```python
 >>> from pathlib import Path
