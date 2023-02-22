@@ -1,6 +1,6 @@
 [project]
 name = "PathTraverser"
-version = "1.0.4"
+version = "1.0.5"
 description = "Traversing files and directories in Python easily"
 authors = [
   { name = "Hubert Tarnacki", email = "hubert.tarnacki@gmail.com" }
@@ -10,7 +10,7 @@ maintainers = [
 ]
 readme = "README.md"
 license = { file = "LICENSE" }
-keywords = ["traverse", "walk", "list", "files", "directories", "filesystem"]
+keywords = ["traverse", "walk", "list", "files", "directories", "dirs", "filesystem", "path", "paths"]
 classifiers = [
   "Topic :: Software Development :: Libraries",
   "Topic :: Software Development :: Libraries :: Python Modules",
