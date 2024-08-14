@@ -1,3 +1,3 @@
-__all__ = ['Traverser', 'PathTypes']
+__all__: list[str] = ['Traverser']
 
-from .Traverser import Traverser, PathTypes
+from .Traverser import Traverser

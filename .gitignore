@@ -26,7 +26,8 @@ __pycache__/
 .venv
 
 # pdm
-.pdm.toml
+.pdm-python
+.pdm-build
 
 # custom
 .NOTES

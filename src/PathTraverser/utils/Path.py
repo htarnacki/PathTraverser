@@ -15,10 +15,13 @@ def part_count(path: pathlib.Path) -> int:
 
 
 def starts_with(a: pathlib.Path, b: pathlib.Path) -> bool:
-    for idx, _ in enumerate(b.parts):
-        if idx >= len(a.parts) or _ != a.parts[idx]:
-            return False
-    return True
+    if len(b.parts) > len(a.parts):
+        return False
+    else:
+        for idx, _ in enumerate(b.parts):
+            if _ != a.parts[idx]:
+                return False
+        return True
 
 
 def __getattr__(name: str) -> typing.Any:

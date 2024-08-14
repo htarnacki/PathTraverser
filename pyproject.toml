@@ -1,7 +1,7 @@
 [project]
 name = "PathTraverser"
-version = "1.0.5"
-description = "Traversing files and directories in Python easily"
+version = "2.0.0"
+description = "Traversing file system in Python easily"
 authors = [
   { name = "Hubert Tarnacki", email = "hubert.tarnacki@gmail.com" }
 ]
@@ -20,24 +20,24 @@ classifiers = [
   "Operating System :: OS Independent"
 ]
 
-requires-python = ">=3.8"
+requires-python = ">=3.12"
 
 [project.urls]
 homepage = "https://github.com/htarnacki/PathTraverser"
 repository = "https://github.com/htarnacki/PathTraverser"
 "bug tracker" = "https://github.com/htarnacki/PathTraverser/issues"
 
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
 [tool.pdm.dev-dependencies]
-lint = ["flake8"]
+lint = ["ruff"]
 test = ["tox"]
 
 [tool.pdm.build]
 package-dir = "src"
 excludes = ["tests/"]
-
-[build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
 
 [tool.black]
 line-length = 120
@@ -51,3 +51,26 @@ column_limit = 120
 
 [tool.flake8]
 max-line-length = 120
+
+[tool.ruff]
+line-length = 120
+extend-select = [
+    "E501",  # check line length
+    # "N",  # pep8-naming
+    # "B",  # flake8-bugbear
+    # "C4",  # flake8-comprehensions
+    # "ERA",  # flake8-eradicate/eradicate
+    # "I",  # isort
+    # "NPY",  # numpy
+    # "PIE",  # flake8-pie
+    # "PGH",  # pygrep
+    # "RUF",  # ruff checks
+    # "SIM",  # flake8-simplify
+    # "TCH",  # flake8-type-checking
+    # "TID",  # flake8-tidy-imports
+    # "UP",  # pyupgrade
+]
+ignore = [
+  # "N812",  # Lowercase `xxx` imported as non-lowercase 'YYY'
+  "E402",  # Module level import not at top of file
+]
