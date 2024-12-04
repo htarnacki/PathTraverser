@@ -328,11 +328,11 @@ In the given example the path is accepted only if it meets the condition: not(fi
 >>>     print(str(path))
 >>>
 >>> # recursively print all files with hidden attribute
->>> for file in Traverser(hidden).files(hidden):
+>>> for file in Traverser().files(hidden):
 >>>     print(str(file))
 >>>
 >>> # recursively print all dirs with hidden attribute
->>> for dir in Traverser(hidden).dirs(hidden):
+>>> for dir in Traverser().dirs(hidden):
 >>>     print(str(dir))
 ```
 
@@ -347,11 +347,11 @@ In the given example the path is accepted only if it meets the condition: not(fi
 >>>     print(str(path))
 >>>
 >>> # recursively print all files with executable attribute
->>> for file in Traverser(executable).files(executable):
+>>> for file in Traverser().files(executable):
 >>>     print(str(file))
 >>>
 >>> # recursively print all dirs with executable attribute
->>> for dir in Traverser(executable).dirs(executable):
+>>> for dir in Traverser().dirs(executable):
 >>>     print(str(dir))
 ```
 
@@ -366,11 +366,11 @@ In the given example the path is accepted only if it meets the condition: not(fi
 >>>     print(str(path))
 >>>
 >>> # recursively print all files with writeable attribute
->>> for file in Traverser(writeable).files(writeable):
+>>> for file in Traverser().files(writeable):
 >>>     print(str(file))
 >>>
 >>> # recursively print all dirs with writeable attribute
->>> for dir in Traverser(writeable).dirs(writeable):
+>>> for dir in Traverser().dirs(writeable):
 >>>     print(str(dir))
 ``` 
 
@@ -385,11 +385,11 @@ In the given example the path is accepted only if it meets the condition: not(fi
 >>>     print(str(path))
 >>>
 >>> # recursively print all files with readonly attribute
->>> for file in Traverser(readonly).files(readonly):
+>>> for file in Traverser().files(readonly):
 >>>     print(str(file))
 >>>
 >>> # recursively print all dirs with readonly attribute
->>> for dir in Traverser(readonly).dirs(readonly):
+>>> for dir in Traverser().dirs(readonly):
 >>>     print(str(dir))
 ```
 
